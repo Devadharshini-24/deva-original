@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>College Event Calendar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffeb3b;
+    }
+
+    /* Hero Section with background image */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+                  url('/image/hm1.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      text-align: center;
+      padding: 0 20px;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s ease;
+      color: white;
+    }
+
+    .btn.view {
+      background-color: #2980b9;
+    }
+
+    .btn.view:hover {
+      background-color: #1f618d;
+    }
+
+    .btn.add {
+      background-color: #27ae60;
+    }
+
+    .btn.add:hover {
+      background-color: #1e8449;
+    }
+
+    /* Features Section */
+    .features {
+      background: #fff;
+      color: #333;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .features h2 {
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      color: #2c3e50;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .feature {
+      background-color: #f4f4f4;
+      padding: 25px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .feature i {
+      font-size: 2.5em;
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+      color: #3498db;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9em;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">🎓 College Events</div>
+    <ul>
+      <li><a href="/new/home.html">Home</a></li>
+      <li><a href="/templates/event.html">Events</a></li>
+      <li><a href="/templates/add.html">Add Event</a></li>
+      <li><a href="/templates/login.html">login</a></li>
+      <li><a href="/templates/abt.html">About us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to College Event Calendar</h1>
+    <p>Stay informed and never miss a seminar, cultural fest, or technical event again.</p>
+    <div class="buttons">
+      <a href="/templates/event.html" class="btn view"><i class="fas fa-calendar-alt"></i> View Events</a>
+      <!-- <a href="/add_event" class="btn add"><i class="fas fa-plus-circle"></i> Add Event</a> -->
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <h2>Why Use Our Platform?</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <i class="fas fa-list-ul"></i>
+        <h3>All Events in One Place</h3>
+        <p>Access a centralized list of past and upcoming college events.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-info-circle"></i>
+        <h3>Complete Event Details</h3>
+        <p>Know when, where, and what the event is all about.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-user-cog"></i>
+        <h3>Admin Friendly</h3>
+        <p>Easily manage and publish new events with our simple admin form.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-calendar-week"></i>
+        <h3>Calendar View</h3>
+        <p>See all events in a calendar interface for quick planning.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 College Event Calendar. Built with ❤️ for campus community.
+  </footer>
+
+</body>
+</html>
