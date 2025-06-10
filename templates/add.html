@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Event</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffeb3b;
+    }
+
+    .center-wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 100vh;
+      padding-top: 100px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .form-container, .preview-container {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 30px 40px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #f1c40f;
+    }
+
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+
+    button {
+      width: 48%;
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+      transform: scale(1.03);
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .preview-container {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .preview-container h2 {
+      color: #00ffcc;
+    }
+
+    .preview p {
+      margin: 10px 0;
+      color: #eee;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+    }
+
+    .modal-content {
+      background: #fff;
+      color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .modal-content h3 {
+      margin-bottom: 10px;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .center-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="video-bg" autoplay muted loop>
+    <source src="/video/1851190-uhd_3840_2160_25fps.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">🎓 College Events</div>
+    <ul>
+      <li><a href="/templates/home1.html">Home</a></li>
+      <li><a href="/templates/event.html">Events</a></li>
+      <li><a href="/templates/add.html">Add Event</a></li>
+      <li><a href="/templates/login.html">login</a></li>
+      <li><a href="/templates/abt.html">About us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="center-wrapper">
+    <!-- Form -->
+    <div class="form-container">
+      
+      <h2>Add New Event</h2>
+      <form id="eventForm">
+        <input type="text" id="name" placeholder="Event Name" required />
+        <input type="date" id="date" required />
+        <input type="time" id="time" required />
+        <input type="text" id="venue" placeholder="Venue" required />
+        <select id="category" required>
+          <option value="">Select Category</option>
+          <option value="Technical">Technical</option>
+          <option value="Cultural">Cultural</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Seminar">Seminar</option>
+          <option value="Sports">Sports</option>
+        </select>
+        <textarea id="description" rows="4" placeholder="Event Description" required></textarea>
+        <div class="btns">
+          <button type="button" onclick="previewEvent()">Preview</button>
+          <button type="reset">Reset</button>
+          <button type="button" onclick="submitEvent()">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Preview -->
+    <!-- <div class="preview-container">
+      <h2>Preview Event</h2>
+      <div class="preview" id="previewBox">
+        <p>No data yet.</p>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Modal -->
+  <div class="modal" id="confirmationModal">
+    <div class="modal-content">
+      <h3>✅ Event Submitted Successfully!</h3>
+      <p>Your event has been added.</p>
+      <button class="close-btn" onclick="closeModal()">OK</button>
+    </div>
+  </div>
+
+  <!-- <script>
+    function previewEvent() {
+      const name = document.getElementById('name').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const venue = document.getElementById('venue').value;
+      const category = document.getElementById('category').value;
+      const desc = document.getElementById('description').value;
+
+      if (name && date && time && venue && category && desc) {
+        document.getElementById('previewBox').innerHTML = `
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Date:</strong> ${date}</p>
+          <p><strong>Time:</strong> ${time}</p>
+          <p><strong>Venue:</strong> ${venue}</p>
+          <p><strong>Category:</strong> ${category}</p>
+          <p><strong>Description:</strong> ${desc}</p>
+        `;
+      } else {
+        document.getElementById('previewBox').innerHTML = `<p style="color: #f00;">Please fill all fields first.</p>`;
+      }
+    }
+
+    function submitEvent() {
+      const form = document.getElementById('eventForm');
+      if (form.checkValidity()) {
+        document.getElementById('confirmationModal').style.display = 'flex';
+        form.reset();
+        document.getElementById('previewBox').innerHTML = '<p>No data yet.</p>';
+      } else {
+        alert("Please complete the form before submitting.");
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('confirmationModal').style.display = 'none';
+    }
+  </script> -->
+
+</body>
+</html>

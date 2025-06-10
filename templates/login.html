@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Poppins', sans-serif;
+      height: 100%;
+      background: #0e0b30;
+      overflow: hidden;
+    }
+
+    /* Top Navbar */
+    nav {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffeb3b;
+    }
+
+    /* Colorful blurred circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+    }
+
+    .circle.purple {
+      width: 300px;
+      height: 300px;
+      background: #a86eff;
+      top: -100px;
+      left: -80px;
+    }
+
+    .circle.orange {
+      width: 200px;
+      height: 200px;
+      background: #ffc44d;
+      bottom: 80px;
+      left: -50px;
+    }
+
+    .circle.gold {
+      width: 280px;
+      height: 280px;
+      background: #ffbb33;
+      bottom: -60px;
+      right: -80px;
+    }
+
+    .circle.pink {
+      width: 80px;
+      height: 80px;
+      background: #d680ff;
+      right: 40px;
+      top: 40px;
+    }
+
+    /* Centered Login Section */
+    .main-content {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 60px; /* spacing below fixed navbar */
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      padding: 40px;
+      width: 320px;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .login-container h2 {
+      margin-bottom: 10px;
+    }
+
+    .login-container p {
+      font-size: 0.9em;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .checkbox-group input {
+      margin-right: 10px;
+    }
+
+    .checkbox-group label {
+      font-size: 0.9em;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
+      color: #fff;
+      transition: transform 0.2s ease;
+    }
+
+    .login-container button:hover {
+      transform: scale(1.03);
+    }
+
+    .login-container a {
+      display: block;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .login-container a.signup {
+      margin-top: 25px;
+    }
+
+    .login-container a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">🎓 College Events</div>
+    <ul>
+      <li><a href="/templates/home1.html">Home</a></li>
+      <li><a href="/templates/event.html">Events</a></li>
+      <li><a href="/templates/add.html">Add Event</a></li>
+      <li><a href="/templates/login.html">Login</a></li>
+      <li><a href="/templates/abt.html">About Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Background circles -->
+  <div class="circle purple"></div>
+  <div class="circle orange"></div>
+  <div class="circle gold"></div>
+  <div class="circle pink"></div>
+
+  <!-- Centered Login -->
+  <div class="main-content">
+    <div class="login-container">
+      <h2>Login</h2>
+      <p>Please login to access our services</p>
+      <form>
+        <input type="text" placeholder="User Name" required />
+        <input type="password" placeholder="Password" required />
+        <div class="checkbox-group">
+          <input type="checkbox" id="remember" />
+          <label for="remember">Remember me</label>
+        </div>
+        <button type="submit">Login</button>
+        <a href="#">Forgot Password?</a>
+        <a href="#" class="signup">Don't have an account? <strong>Signup</strong></a>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

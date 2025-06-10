@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Cards Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('/up img.jpg') no-repeat center center/cover;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffeb3b;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8em;
+      margin: 40px 0 20px;
+      color: #f1c40f;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding: 0 40px 60px;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .event-card {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.8s ease both;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .event-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 30px rgba(0, 255, 255, 0.3);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .event-card-content {
+      padding: 20px;
+    }
+
+    .event-card h3 {
+      color: #00cec9;
+      margin-bottom: 10px;
+    }
+
+    .event-card p {
+      color: #ecf0f1;
+      margin: 5px 0;
+      font-size: 0.95em;
+    }
+
+    .event-card .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #e1f7d5;
+      color: #2c3e50;
+      font-size: 0.85em;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    .event-card .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 16px;
+      background-color: #0984e3;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9em;
+      transition: background-color 0.3s ease;
+    }
+
+    .event-card .btn:hover {
+      background-color: #0652dd;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Animation delay */
+    .event-card:nth-child(1) { animation-delay: 0.1s; }
+    .event-card:nth-child(2) { animation-delay: 0.2s; }
+    .event-card:nth-child(3) { animation-delay: 0.3s; }
+    .event-card:nth-child(4) { animation-delay: 0.4s; }
+    .event-card:nth-child(5) { animation-delay: 0.5s; }
+    .event-card:nth-child(6) { animation-delay: 0.6s; }
+
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">🎓 College Events</div>
+    <ul>
+      <li><a href="/new/home.html">Home</a></li>
+      <li><a href="/templates/event.html">Events</a></li>
+      <li><a href="/templates/add.html">Add Event</a></li>
+      <li><a href="/templates/login.html">Login</a></li>
+      <li><a href="/templates/abt.html">About Us</a></li>
+    </ul>
+  </nav>
+
+  <h1>Upcoming College Events</h1>
+
+  <!-- Cards -->
+  <div class="card-grid">
+    <!-- Card 1 -->
+    <div class="event-card">
+      <img src="/image/tech.jpg" alt="Tech Talk">
+      <div class="event-card-content">
+        <center>
+          <h3>Tech Talk 2025</h3>
+          <p><strong>Date:</strong> June 15, 2025</p>
+          <p><strong>Time:</strong> 2 PM – 4 PM</p>
+          <p><strong>Venue:</strong> Auditorium A</p>
+          <p>Discuss AI trends and emerging tech with industry experts.</p>
+          <span class="tag">Technical</span><br>
+          <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+        </center>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="event-card">
+      <img src="/image/cult.jpg" alt="Cultural Fest">
+      <div class="event-card-content">
+        <center>
+          <h3>Cultural Fest</h3>
+          <p><strong>Date:</strong> June 20, 2025</p>
+          <p><strong>Time:</strong> 5 PM – 10 PM</p>
+          <p><strong>Venue:</strong> Open Grounds</p>
+          <p>Music, dance, and drama from our talented students.</p>
+          <span class="tag">Cultural</span><br>
+          <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+        </center>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="event-card">
+      <img src="/image/stup.jpg" alt="Startup Workshop">
+      <div class="event-card-content">
+        <center>
+          <h3>Startup Workshop</h3>
+          <p><strong>Date:</strong> June 25, 2025</p>
+          <p><strong>Time:</strong> 11 AM – 1 PM</p>
+          <p><strong>Venue:</strong> Seminar Hall</p>
+          <p>Build and pitch your startup idea with expert mentors.</p>
+          <span class="tag">Workshop</span><br>
+          <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+        </center>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="event-card">
+      <img src="/image/smnr.jpg" alt="Data Seminar">
+      <div class="event-card-content">
+        <center>
+          <h3>Data Science Seminar</h3>
+          <p><strong>Date:</strong> July 1, 2025</p>
+          <p><strong>Time:</strong> 10 AM – 12 PM</p>
+          <p><strong>Venue:</strong> Lecture Hall B</p>
+          <p>Big Data and AI trends from top researchers.</p>
+          <span class="tag">Seminar</span><br>
+          <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+        </center>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="event-card">
+      <img src="/image/sprts.jpg" alt="Sports Meet">
+      <div class="event-card-content">
+        <center>
+          <h3>Annual Sports Meet</h3>
+          <p><strong>Date:</strong> July 5, 2025</p>
+          <p><strong>Time:</strong> 8 AM – 6 PM</p>
+          <p><strong>Venue:</strong> Main Stadium</p>
+          <p>Track and field events with inter-college competitions.</p>
+          <span class="tag">Sports</span><br>
+          <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+        </center>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="event-card">
+      <img src="/image/envir.jpg" alt="Environment Day">
+      <div class="event-card-content">
+        <center>
+          <h3>Environment Awareness</h3>
+          <p><strong>Date:</strong> July 10, 2025</p>
+          <p><strong>Time:</strong> 9 AM – 12 PM</p>
+          <p><strong>Venue:</strong> Green Campus</p>
+          <p>Tree plantation drive and sustainability talks.</p>
+          <span class="tag">Environment</span><br>
+          <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+        </center>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
